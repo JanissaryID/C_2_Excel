@@ -15,6 +15,7 @@ def read_c_file(workbook, worksheet):
         lineCount+=1
         processPicture(line=lineCount, lineValue=line, workbook=workbook, worksheet=worksheet)
         
+    bodyPicture(workbook=workbook, worksheet=worksheet)
 
     # close the pointer to that file
     filehandle.close()

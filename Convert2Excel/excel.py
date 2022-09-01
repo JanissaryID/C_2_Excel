@@ -34,8 +34,10 @@ def width_row_picture(worksheet):
             worksheet.set_column("{0}:{1}".format(chr(ord(START_CHAR) + x),chr(ord(START_CHAR) + x)), WIDTH_PICTURE[x-3])
             # print("{0}:{1}".format(chr(ord(START_CHAR) + x),chr(ord(START_CHAR) + x)))
 
-def fill_cell(workbook, worksheet, pos_cell, value, align, border, background, background_color, font_color = "#000000", font_size = 14):
+def fill_cell(workbook, worksheet, pos_cell_start, pos_cell_end, value, align, border, background, background_color, font_color = "#000000", font_size = 14, merge_cell = False):
     cell_format = workbook.add_format()
+
+    pos_merge_cell = "{0}:{1}".format(pos_cell_start, pos_cell_end)
 
     if(align == "C"):
         cell_format.set_align('center')
@@ -60,4 +62,7 @@ def fill_cell(workbook, worksheet, pos_cell, value, align, border, background, b
     cell_format.set_font_color(font_color)
     cell_format.set_font_size(font_size)
 
-    worksheet.write(pos_cell, value, cell_format)
+    if(merge_cell):
+        worksheet.merge_range(pos_merge_cell, value, cell_format)
+
+    worksheet.write(pos_cell_start, value, cell_format)
