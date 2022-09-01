@@ -3,13 +3,14 @@ from excel import fill_cell
 
 DEBUG = 1
 
-rowStart = [3, 8, 8, 11]
+rowStart = [3, 8, 8, 11, 77]
 rowStartTitle = [7]
-alfabetIndex = [0, 0]
-rowIndex = [0, 0, 0]
+alfabetIndex = [0, 0, 0]
+rowIndex = [0, 0, 0, 0]
 rowColor = [0, 0]
 
 color = ["#B7DEE8", "#FFFF00", "#FFC000", "#DDD9C4", "#B7DEE8", "#FFFF00", "#FFC000", "#B7DEE8"]
+color1 = ["#D9D9D9", "#F2DCDB", "#C5D9F1"]
 
 def processPicture(line, lineValue, workbook, worksheet):
     if(line >= 21 and line <= 23):
@@ -209,7 +210,7 @@ def processPicture(line, lineValue, workbook, worksheet):
 
     elif(line >= 194 and line <= 218):
         if DEBUG:
-            alfabetStart = 'D'
+            alfabetStart = 'F'
             value = []
             res = re.split(',|\n| ', lineValue)
             
@@ -239,7 +240,27 @@ def processPicture(line, lineValue, workbook, worksheet):
                             else:
                                 value.append("{0}{1}".format("L",res[i][4:]))
             if(len(value) != 0):
-                print(value)
+                for i in range(len(value)):
+                    cell = "{0}{1}".format(chr(ord(alfabetStart) + alfabetIndex[2]), rowStart[4] + rowIndex[3])
+                    print("{0} {1}".format(cell, value[i]))
+
+                    fill_cell(
+                        workbook=workbook,
+                        worksheet=worksheet,
+                        pos_cell=cell,
+                        value=value[i],
+                        align="C",
+                        border=True,
+                        background=True,
+                        background_color="#00FF00",
+                        font_color="#000000",
+                        font_size=11
+                    )
+
+                    rowIndex[3] += 1
+                    if(rowIndex[3] == 18):
+                        alfabetIndex[2] += 1
+                        rowIndex[3] = 0
 
             rowIndex[2] += 1
             if(rowIndex[2] == 2):
