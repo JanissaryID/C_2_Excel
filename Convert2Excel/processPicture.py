@@ -732,63 +732,165 @@ def bodyPicture(workbook, worksheet):
             rowColor = 0
 
     row2 = 77
-    row3 = 0
     rowColor2 = 0
 
-    for i in range(len(subtittle5)):
-        alfabetStart = 'E'
-        
-        cell = "{0}{1} {2}".format(chr(ord(alfabetStart)), row2, row3)
+    alfabetStart3 = 'B'
+            
+    cell5 = "{0}{1}".format(chr(ord(alfabetStart3)), row2)
+    cell6 = "{0}{1}".format(chr(ord(alfabetStart3)), row2 + 17)
 
-        print(cell)
-        
+
+    fill_cell(
+        workbook=workbook,
+        worksheet=worksheet,
+        pos_cell_start=cell5,
+        pos_cell_end=cell6,
+        value=subtittle8[0],
+        align="C",
+        border=True,
+        background=True,
+        background_color="#92CDDC",
+        font_color="#000000",
+        font_size=11,
+        merge_cell=True
+    )
+
+    for j in range(len(subtittle7)):
+        alfabetStart2 = 'C'
+            
+        cell3 = "{0}{1}".format(chr(ord(alfabetStart2)), row2)
+        cell4 = "{0}{1}".format(chr(ord(alfabetStart2)), row2 + 5)
+
         fill_cell(
             workbook=workbook,
             worksheet=worksheet,
-            pos_cell_start=cell,
-            pos_cell_end=cell,
-            value=str(subtittle5[i]),
-            align="L",
+            pos_cell_start=cell3,
+            pos_cell_end=cell4,
+            value=str(subtittle7[j]),
+            align="C",
             border=True,
             background=True,
             background_color=color1[rowColor2],
             font_color="#000000",
-            font_size=11
+            font_size=11,
+            merge_cell=True
         )
-        if(row3 == 2):
-            row3 = -1
+        for i in range(len(subtittle5)):
+            alfabetStart = 'E'
+            
+            cell = "{0}{1}".format(chr(ord(alfabetStart)), row2)
 
-        # if(i == 0 or i == 3 ):
-        #     alfabetStart1 = 'D'
+            # print(cell)
+            
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle5[i]),
+                align="C",
+                border=True,
+                background=True,
+                background_color=color1[rowColor2],
+                font_color="#000000",
+                font_size=11
+            )
 
-        #     cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row2)
-        #     cell2 = "{0}{1}".format(chr(ord(alfabetStart1)), row2 + 2)
+            if(i == 0):
+                alfabetStart1 = 'D'
 
-        #     print("{0} {1}".format(cell1, "Start"))
-        #     print("{0} {1}".format(cell2, "End"))
+                cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row2)
+                cell2 = "{0}{1}".format(chr(ord(alfabetStart1)), row2 + 2)
 
-        #     fill_cell(
-        #             workbook=workbook,
-        #             worksheet=worksheet,
-        #             pos_cell_start=cell1,
-        #             pos_cell_end=cell2,
-        #             value=str(subtittle6[j]),
-        #             align="L",
-        #             border=True,
-        #             background=True,
-        #             background_color=color1[rowColor2],
-        #             font_color="#000000",
-        #             font_size=11,
-        #             merge_cell=True
-        #         )
+                fill_cell(
+                        workbook=workbook,
+                        worksheet=worksheet,
+                        pos_cell_start=cell1,
+                        pos_cell_end=cell2,
+                        value=str(subtittle6[0]),
+                        align="C",
+                        border=True,
+                        background=True,
+                        background_color=color1[rowColor2],
+                        font_color="#000000",
+                        font_size=11,
+                        merge_cell=True
+                    )
+            elif(i == 3):
+                alfabetStart1 = 'D'
 
-        row2 += 1
-        row3 += 1
-    rowColor2 += 1
-    if(rowColor2 == 3):
-        rowColor2 = 0
+                cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row2)
+                cell2 = "{0}{1}".format(chr(ord(alfabetStart1)), row2 + 2)
 
-    # for j in range(len(subtittle6)):
+                fill_cell(
+                        workbook=workbook,
+                        worksheet=worksheet,
+                        pos_cell_start=cell1,
+                        pos_cell_end=cell2,
+                        value=str(subtittle6[1]),
+                        align="C",
+                        border=True,
+                        background=True,
+                        background_color=color1[rowColor2],
+                        font_color="#000000",
+                        font_size=11,
+                        merge_cell=True
+                    )
+
+            row2 += 1
+        rowColor2 += 1
+        if(rowColor2 == 3):
+            rowColor2 = 0
+
+    row3 = 97
+    rowColor3 = 0
+
+    for j in range(len(subtittle10)):
+        alfabetStart1 = 'B'
+
+        cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row3)
+        cell2 = "{0}{1}".format(chr(ord(alfabetStart1)), row3 + 4)
+
+        fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell1,
+                pos_cell_end=cell2,
+                value=str(subtittle10[j]),
+                align="L",
+                border=True,
+                background=True,
+                background_color=color2[rowColor3],
+                font_color="#000000",
+                font_size=11,
+                merge_cell=True
+            )
+
+        for i in range(len(subtittle9)):
+            alfabetStart = 'C'
+            
+            cell = "{0}{1}".format(chr(ord(alfabetStart)), row3)
+            
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle9[i]),
+                align="L",
+                border=True,
+                background=True,
+                background_color=color2[rowColor3],
+                font_color="#000000",
+                font_size=11
+            )
+
+            # print(cell2)
+
+            row3 += 1
+        rowColor3 += 1
+        if(rowColor3 == 6):
+            rowColor3 = 0
         
 
         
