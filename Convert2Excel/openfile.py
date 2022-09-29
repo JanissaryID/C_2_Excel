@@ -18,6 +18,7 @@ def read_c_file(workbook, worksheet):
         processSound(line=lineCount, lineValue=line, workbook=workbook, worksheet=worksheet)
 
     # bodyPicture(workbook=workbook, worksheet=worksheet)
+    bodySound(workbook=workbook, worksheet=worksheet)
 
     # close the pointer to that file
     filehandle.close()

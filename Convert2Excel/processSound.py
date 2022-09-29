@@ -683,3 +683,1067 @@ def processSound(line, lineValue, workbook, worksheet):
 
             rowIndex[10] += 1
 
+def bodySound(workbook, worksheet):
+    tittle1 = ["DEFAULT PRESCALE 0dB  -->", "<< Unused"]
+    tittle2 = ["SETTING PRESCALE", "SOURCE ->", "DTV", "ATV", "AV", "AV2", "YPBPR", "VGA", "HDMI", "HDMI2", "HDMI3", "HDMI4", "USB", "SV", "SCART", "STV"]
+    tittle3 = ["SETTING EQUALIZER", "MODE ->", "MUSIC", "NEWS", "SPORTS", "STANDARD", "USER"]
+    tittle4 = ["SETTING VOLUME NONLINEAR", "SOURCE ->", "DTV", "ATV", "AV", "AV2", "HDMI", "HDMI2", "HDMI3", "HDMI4", "USB"]
+    tittle5 = ["SETTING EQUALIZER NONLINEAR", "SOURCE -->", "DTV", "ATV", "AV", "AV2", "YPBPR", "VGA", "HDMI", "HDMI2", "HDMI3", "HDMI4", "USB", "SV", "SCART", "STV"]
+    tittle6 = ["SETTING DRC", "FUNCTION", "VALUE"]
+    tittle7 = ["DEFAULT_AVC_THRESHOLD", "SOURCE -->", "DTV", "ATV", "AV", "AV2", "YPBPR", "VGA", "HDMI", "HDMI2", "HDMI3", "HDMI4", "USB", "SV", "SCART", "STV"]
+    tittle8 = ["SETTING AVL", "SOURCE -->", "DTV", "ATV", "AV1", "AV2", "AV3", "YPBPR1", "YPBPR2", "VGA", "HDMI1", "HDMI2", "HDMI3", "HDMI4", "USB", "STV"]
+    tittle9 = ["VOLUME TABLE", "SOURCE -->", "DTV", "ATV", "AV", "HDMI", "USB"]
+    tittle10 = ["SETTING_SUBWOOFER_LOW", "DISPLAY ->"]
+    tittle11 = ["SETTING_SUBWOOFER_HIGH", "DISPLAY ->"]
+    tittle12 = ["LOUDNESS OFFSET TABLE", "VOL LEVEL", "LowSubw", "LowTreble", "HighSubw", "HighTreble"]
+    tittle13 = ["SETTING PEQ", "DISPLAY ->", "BAND1", "BAND2", "BAND3", "BAND4", "BAND5"]
+    tittle14 = ["SETTING HPF", "DISPLAY ->", "VALUE"]
+    tittle15 = ["SETTING PRE VOLUME", "REGISTER", "VALUE"]
+    tittle16 = ["PWM1_PERIOD", "INIT_PWM1_DUTY", "PWM1_DIV"]
+
+    subtittle1 = ["MAINSPEAKER", "LINEOUT_LO", "LINEOUT_HI"]
+    subtittle2 = ["120HZ", "500HZ", "1_5KHZ", "5KHZ", "10KHZ", "TREBLE", "BASS"]
+    subtittle3 = ["OSD 0", "0SD 25", "OSD 50", "OSD 75", "OSD 100"]
+    subtittle4 = ["0", "25", "50", "75", "100"]
+    subtittle5 = ["DRC_ENABLE", "DRC_THRESHOLD"]
+    subtittle6 = ["(AVC ENABLE - OFF)", "VALUE -->"]
+    subtittle7 = ["(AVC ENABLE - ON)", "VALUE -->"]
+    subtittle8 = ["VALUE"]
+    subtittle9 = ["GAIN", "FO", "Q_VALUE"]
+    subtittle10 = ["ENABLE", "FO", "Q_VALUE"]
+    subtittle11 = ["0x112D58", "0x112D5A", "0x112D5C", "0x112D5E"]
+
+    subtittle4_1 = ["120HZ", "500HZ", "1_5KHZ", "5KHZ", "10KHZ"]
+
+    color0 = ["#FCD5B4", "#FABF8F", "#CCC0DA", "B8CCE4", "BFBFBF"]
+    color0_1 = ["#D8E4BC", "#FABF8F", "#CCC0DA", "B8CCE4", "BFBFBF"]
+
+
+    for i in range(len(tittle1)):
+        alfabetStart = 'A'
+        row = 2
+
+        # print(cell)
+        if(i < 1):
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(tittle1[i]),
+                align="L",
+                border=True,
+                background=True,
+                background_color="#92D050",
+                font_color="#000000",
+                font_size=14
+            )
+        else:
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i + 1), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(tittle1[i]),
+                align="L",
+                border=False,
+                background=True,
+                background_color="#FFFFFF",
+                font_color="#000000",
+                font_size=11
+            )
+
+    for i in range(len(tittle2)):
+        
+        alfabetStart = 'A'
+        row = 4
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle2[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#8DB4E2",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle2[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#8DB4E2",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle3)):
+        
+        alfabetStart = 'A'
+        row = 9
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle3[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#00B050",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle3[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#00B050",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle4)):
+        
+        alfabetStart = 'A'
+        row = 18
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle4[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#E26B0A",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle4[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#E26B0A",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle5)):
+        
+        alfabetStart = 'A'
+        row = 25
+
+        if(i == 1):
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+            cell2 = "{0}{1}".format(chr(ord(alfabetStart) + (int(i) + 1)), row)
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell2,
+                value=str(tittle5[i]),
+                align="C",
+                border=True,
+                background=True,
+                background_color="#948A54",
+                font_color="#000000",
+                font_size=14,
+                merge_cell=True
+            )
+        elif(i == 0):
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(tittle5[i]),
+                align="L",
+                border=True,
+                background=True,
+                background_color="#948A54",
+                font_color="#000000",
+                font_size=14
+            )
+        else:
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + (int(i) + 1)), row)
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(tittle5[i]),
+                align="C",
+                border=True,
+                background=True,
+                background_color="#948A54",
+                font_color="#000000",
+                font_size=14
+            )
+
+    for i in range(len(tittle6)):
+
+        alfabetStart = 'A'
+        row = 52
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle6[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#00B0F0",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle6[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#00B0F0",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle7)):
+
+        alfabetStart = 'A'
+        row = 56
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle7[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#92D050",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle7[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#92D050",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle8)):
+
+        alfabetStart = 'A'
+        row = 59
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle8[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#E26B0A",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle8[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#E26B0A",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle9)):
+
+        alfabetStart = 'A'
+        row = 63
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle9[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#538DD5",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle9[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#538DD5",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle10)):
+
+        alfabetStart = 'A'
+        row = 171
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle10[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle10[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle11)):
+
+        alfabetStart = 'A'
+        row = 174
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle11[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle11[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle12)):
+
+        alfabetStart = 'A'
+        row = 177
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle12[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#FFC000",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle12[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#FFC000",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle13)):
+
+        alfabetStart = 'A'
+        row = 197
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle13[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle13[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle14)):
+
+        alfabetStart = 'A'
+        row = 203
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle14[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle14[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle15)):
+
+        alfabetStart = 'A'
+        row = 209
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle15[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#FFFF00",
+            font_color="#000000",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle15[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#FFFF00",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(len(tittle16)):
+
+        alfabetStart = 'O'
+        row = 171
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        # print(cell)
+        if(i == 0):
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle16[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#FFC7CE",
+            font_color="#9C0006",
+            font_size=14
+        )
+        else:
+            fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(tittle16[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#FFC7CE",
+            font_color="#9C0006",
+            font_size=14
+        )
+
+    for i in range(len(subtittle1)):
+        alfabetStart = 'B'
+        row = 5
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle1[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#00B0F0",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle2)):
+        alfabetStart = 'B'
+        row = 10
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle2[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#FFFF00",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle3)):
+        alfabetStart = 'B'
+        row = 19
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle3[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#D8E4BC",
+            font_color="#000000",
+            font_size=11
+        )
+
+    row0 = 26
+    rowColor0 = 0
+
+    for j in range(len(subtittle4_1)):
+        alfabetStart1 = 'B'
+
+        cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row0)
+        cell2 = "{0}{1}".format(chr(ord(alfabetStart1)), row0 + 4)
+
+        fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell1,
+                pos_cell_end=cell2,
+                value=str(subtittle4_1[j]),
+                align="C",
+                border=True,
+                background=True,
+                background_color=color0_1[rowColor0],
+                font_color="#000000",
+                font_size=11,
+                merge_cell=True
+            )
+
+        for i in range(len(subtittle4)):
+            alfabetStart = 'C'
+            
+            cell = "{0}{1}".format(chr(ord(alfabetStart)), row0)
+            
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle4[i]),
+                align="C",
+                border=True,
+                background=True,
+                background_color=color0[rowColor0],
+                font_color="#000000",
+                font_size=11
+            )
+
+            # print(cell2)
+
+            row0 += 1
+        rowColor0 += 1
+        if(rowColor0 == 6):
+            rowColor0 = 0
+
+    for i in range(len(subtittle5)):
+        alfabetStart = 'B'
+        row = 53
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle5[i]),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#B7DEE8",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(101):
+        alfabetStart = 'B'
+        row = 64
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str("VOL {0}".format(i)),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#538DD5",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle6)):
+        alfabetStart = 'A'
+        row = 57
+
+        # print(cell)
+        if(i < 1):
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle6[i]),
+                align="R",
+                border=False,
+                background=True,
+                background_color="#FFFFFF",
+                font_color="#000000",
+                font_size=11
+            )
+        else:
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle6[i]),
+                align="L",
+                border=True,
+                background=True,
+                background_color="#C4D79B",
+                font_color="#000000",
+                font_size=14
+            )
+
+    for i in range(len(subtittle7)):
+        alfabetStart = 'A'
+        row = 60
+
+        # print(cell)
+        if(i < 1):
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle7[i]),
+                align="R",
+                border=False,
+                background=True,
+                background_color="#FFFFFF",
+                font_color="#000000",
+                font_size=11
+            )
+        else:
+            cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+            fill_cell(
+                workbook=workbook,
+                worksheet=worksheet,
+                pos_cell_start=cell,
+                pos_cell_end=cell,
+                value=str(subtittle7[i]),
+                align="L",
+                border=True,
+                background=True,
+                background_color="#FABF8F",
+                font_color="#000000",
+                font_size=14
+            )
+    
+    for i in range(len(subtittle8)):
+        alfabetStart = 'B'
+        row = 172
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle8[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=11
+        )
+    
+    for i in range(len(subtittle8)):
+        alfabetStart = 'B'
+        row = 175
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+
+        # print(cell)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle8[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(17):
+        alfabetStart = 'B'
+        row = 178
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str("VOL {0}".format(i)),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#FFC000",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle9)):
+        alfabetStart = 'B'
+        row = 198
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle9[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle10)):
+        alfabetStart = 'B'
+        row = 204
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle10[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=11
+        )
+
+    for i in range(len(subtittle11)):
+        alfabetStart = 'B'
+        row = 210
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart)), row + i)
+        
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(subtittle11[i]),
+            align="L",
+            border=True,
+            background=True,
+            background_color="#FFFF00",
+            font_color="#000000",
+            font_size=11
+        )
+
+    alfabetStart1 = 'D'
+    row1 = 204
+
+    cell1 = "{0}{1}".format(chr(ord(alfabetStart1)), row1)
+
+    fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell1,
+            pos_cell_end=cell1,
+            value=str("( 0 = OFF; 1 = ON )"),
+            align="L",
+            border=False,
+            background=True,
+            background_color="#FFFFFF",
+            font_color="#000000",
+            font_size=11,
+            bold=True
+        )
+
+    for i in range(11):
+        alfabetStart = 'C'
+        row = 171
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(i),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
+
+    for i in range(11):
+        alfabetStart = 'C'
+        row = 174
+
+        cell = "{0}{1}".format(chr(ord(alfabetStart) + i), row)
+
+        fill_cell(
+            workbook=workbook,
+            worksheet=worksheet,
+            pos_cell_start=cell,
+            pos_cell_end=cell,
+            value=str(i),
+            align="C",
+            border=True,
+            background=True,
+            background_color="#CCC0DA",
+            font_color="#000000",
+            font_size=14
+        )
